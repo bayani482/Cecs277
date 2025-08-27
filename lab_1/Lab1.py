@@ -36,7 +36,7 @@ if __name__ == '__main__':
             guess = check_input.get_int_range("Too low! Guess again (1-100): ", 1, 100)
             tries += 1
 
-        elif guess > random_int:
+        else:
             guess = check_input.get_int_range("Too high! Guess again (1-100): ", 1, 100)
             tries += 1
 
