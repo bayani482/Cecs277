@@ -18,7 +18,7 @@
 """
 
 import random as rand
-import check_input
+import lab_1.original.check_input as check_input
 
 if __name__ == '__main__':
     random_int = rand.randint(1,100)
