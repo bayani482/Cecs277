@@ -78,10 +78,8 @@ def get_int_range(prompt, low, high):
         valid = True
       else:
         print("Invalid input - should be within range " + str(low) + "-" + str(high) + ".")
-		#prompt = f"Guess again ({low}-{high}): "
     except ValueError:
       print("Invalid input - should be an integer.")
-	  #prompt = f"Guess again ({low}-{high}): "
   return val
 
 
@@ -119,4 +117,3 @@ def get_yes_no(prompt):
       return False
     else:
       print("Invalid input - should be a 'Yes' or 'No'.")
-      
