@@ -4,6 +4,8 @@
     Student 1: Javier Jacobo
     Student 2: Bryan Bayani
 
+
+
 """
 
 import random as rand
@@ -13,7 +15,7 @@ import check_input
 
 def get_users_bet(money):
     """
-    takes in int value of users money, displays users money, takes in user input and validaties it.
+    takes in a integer of users money as an argument, displays users money, takes in user input of betting amount and validaties it.
 
     Args:
         x (int): int value of user input
@@ -21,7 +23,7 @@ def get_users_bet(money):
     Returns:
         returns user bet in
     """
-    print(f"You have $ {money} dollars")
+    print(f"You have ${money}.")
     bet = check_input.get_int_range("How much do you wanna bet? ", 1, money)
     return bet
 
@@ -85,7 +87,7 @@ def main():
         display_queen_loc(queenLoc)
         if queenLoc == users_Choice:
             user_money += bet
-            print(f"you got lucky this time ...\n you have ${user_money} dollars")
+            print(f"you got lucky this time ...\n you have ${user_money}.")
         else:
             user_money -= bet
             print("Sorry... you lose")
