@@ -4,7 +4,8 @@
     Student 1: Javier Jacobo
     Student 2: Bryan Bayani
 
-
+This is a gambling game where the user needs to wager money and select a one of three cards where the queen is located. 
+Each of the user input is validated. The user can decide to continue playing after each play or until they run out of money.
 
 """
 
