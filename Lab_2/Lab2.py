@@ -12,11 +12,28 @@ import check_input
 
 
 def get_users_bet(money):
+    """
+    takes in int value of users money, displays users money, takes in user input and validaties it.
+
+    Args:
+        x (int): int value of user input
+
+    Returns:
+        returns user bet in
+    """
     print(f"You have $ {money} dollars")
     bet = check_input.get_int_range("How much do you wanna bet? ", 1, money)
     return bet
 
 def get_users_choice():
+    """
+    def get_users_choice():
+    “““ prints to screen 3 cards for the game, takes in user input and validates it between 1-3
+
+    Returns:
+        returns the validated user choice
+    """
+    
     print("""
 +-----+ +-----+ +-----+
 |     | |     | |     |
@@ -27,6 +44,12 @@ def get_users_choice():
     return user_choice
 
 def display_queen_loc(queen_loc):
+    """
+    Prints out to screen location of the queen
+
+    Args:
+        x (int): int value between 1-3 of location of the queen
+    """
     if queen_loc ==1:
         position_1 = "Q"
         position_2 = "K"
