@@ -117,7 +117,7 @@ def main():
 
             guess = check_input_lab3.get_alpha("Enter a letter: ")
 
-            # Verify if guess has already been guesses
+            # Verify if guess has already been guessed
             if guess in incorrect or guess in correct:
                 print("You already guessed that letter!\n")
                 continue
