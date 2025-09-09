@@ -13,6 +13,10 @@ from dictionary import words
 
 
 def display_gallows(num_incorrect):
+    """
+    display_gallows takes in a int and prints out the index of the game state
+    Input: num_incorrect - int
+    """
     gallows = [
         """
         ========
@@ -68,9 +72,18 @@ def display_gallows(num_incorrect):
     print(gallows[num_incorrect])
 
 def display_letters(letters):
+    """
+    display_letters takes list and and prints out all the elements in a single string 
+    Input: letters - list
+    """
     print(" ".join(letters))
 
 def get_letters_remaining(correct, incorrect):
+    """
+    get_letters_remaining takes in two lists which the user has guessed and removes the matches from alpha list. then return the alpha list
+    Input: correct - list
+            incorrect - list
+    """
     alpha = [
         "A",
         "B",
