@@ -64,7 +64,7 @@ def display_gallows(num_incorrect):
                     ||    \\0/
                     ||     |
                     ||    / \\
-                   git """
+                    """
         ]
     print(gallows[num_incorrect])
 
