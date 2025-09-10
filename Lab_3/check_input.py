@@ -118,13 +118,3 @@ def get_yes_no(prompt):
     else:
       print("Invalid input - should be a 'Yes' or 'No'.")
 
-def get_alpha(prompt):
-  valid = False
-  while not valid:
-    val = input(prompt).upper()
-    if len(val) == 1 and val.isalpha():
-      return val
-    elif len(list(val)) > 1:
-      print("Must be a single alphabetical letter: ")
-    else:
-      print("You must enter an aphabetical letter: ")

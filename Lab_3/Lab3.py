@@ -4,11 +4,16 @@
     Student 1: Javier Jacobo
     Student 2: Bryan Bayani
 
+    Hangman game that randomly selects a 5 character word from a dictionary module.
+    The user has up to 6 tries to guess the word correctly. The game will display the
+    hangman's gallow after every valid guess. Each guess will be checked and validated
+    to ensure it is a single alphabetical character. Invalid guess will not be counted.
+
 """
 
 import random as rand
 from dictionary import words
-import check_input_lab3
+import check_input
 
 def display_gallows(num_incorrect):
     """
@@ -105,7 +110,7 @@ def main():
         correct_count = 0
 
         # To debug, uncomment the following line of code below:
-        # print(rand_word)
+        print(rand_word)
 
         while incorrect_count < 6 or correct_count >= 5:
             print(f"Incorrect selections: {" ".join(incorrect)}")
@@ -115,7 +120,15 @@ def main():
             print(" ".join(correct))
             print()
 
-            guess = check_input_lab3.get_alpha("Enter a letter: ")
+            while True:
+                guess = input("Enter a letter: ").upper()
+
+                if len(guess) == 1 and guess.isalpha():
+                    break
+                elif len((guess)) > 1:
+                    print("Must be a single alphabetical letter: ")
+                else:
+                    print("You must enter an aphabetical letter: ")
 
             # Verify if guess has already been guessed
             if guess in incorrect or guess in correct:
@@ -138,18 +151,16 @@ def main():
             if "_" not in correct or correct_count == 5:
                 display_gallows(incorrect_count)
                 print(" ".join(correct))
-                print()
-                print(f"You win! The word was {rand_word}.")
+                print(f"\nYou win! The word was {rand_word}.")
                 break
         
         # If user reaches maximum amount of guesses allowed, the user loses and results are displayed
         if incorrect_count == 6:
             display_gallows(incorrect_count)
             print(" ".join(correct))
-            print()
-            print(f"You lose! The word was {rand_word}.")
+            print(f"\nYou lose! The word was {rand_word}.")
 
-        play = check_input_lab3.get_yes_no("Do you wonna play again? (Y/N): ")
+        play = check_input.get_yes_no("Do you wonna play again? (Y/N): ")
 
 if __name__ == '__main__':
     main()
