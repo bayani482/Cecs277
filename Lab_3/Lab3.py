@@ -107,8 +107,8 @@ def main():
         # To debug, uncomment the following line of code below:
         # print(rand_word)
 
-        while incorrect_count < 6:
-            print(f"Incorrect selections: {' '.join(incorrect)}")
+        while incorrect_count < 6 or correct_count >= 5:
+            print(f"Incorrect selections: {" ".join(incorrect)}")
             display_gallows(incorrect_count)
             display_letters(get_letters_remaining(incorrect, correct))
             print()
@@ -135,7 +135,7 @@ def main():
                 incorrect_count += 1
             
             # If user guesses entire word correctly display results
-            if "_" not in correct:
+            if "_" not in correct or correct_count == 5:
                 display_gallows(incorrect_count)
                 print(" ".join(correct))
                 print()
