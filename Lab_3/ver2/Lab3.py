@@ -166,7 +166,7 @@ def main():
         display_letters(correct)
         print("Remaining letters:", " ".join(get_letters_remaining(correct, incorrect)))
 
-        print(rand_word)
+        #print(rand_word)
         while incorrect_count < 6:
             while True:
                 guess = check_input_lab3.get_alpha("Guess a letter: ")
