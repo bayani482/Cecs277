@@ -110,7 +110,7 @@ def main():
         correct_count = 0
 
         # To debug, uncomment the following line of code below:
-        print(rand_word)
+        # print(rand_word)
 
         while incorrect_count < 6 or correct_count >= 5:
             print(f"Incorrect selections: {" ".join(incorrect)}")
