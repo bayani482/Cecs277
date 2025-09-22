@@ -1,0 +1,24 @@
+class Contact:
+    def __init__(self, fn, ln, ph, addr, city, zip):
+        self.fn = fn
+        self.ln = ln
+        self.ph = ph
+        self.addr = addr
+        self.city = city
+        self.zip = zip
+
+    def __lt__(self,other):
+        self.other = other
+
+        if self.ln == other.ln:
+            if self.fn == other.fn:
+                return True
+            else:
+                return False
+        return f"{self.fn} is not {other.ln}"
+            
+    def __str__(self):
+        return f"{self.ln},{self.fn},{self.ph},{self.addr},{self.city},{self.zip}"
+    
+    def __repr__(self):
+        pass
