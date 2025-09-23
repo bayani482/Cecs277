@@ -28,10 +28,24 @@ def write(contacts):
 def get_menu_choice():
     userInput = int(check_input.get_int_range("\n1.Display Contacts\n2.Add Contacts\n3.Search Contacts\n4.Modify Contacts\n5.Save and Quit\n>", 1, 5))
     return userInput
-
 def modify_contact(cont):
-    print("modify_contact")
-
+    while True:
+        userModify = int(check_input.get_int_range(f"\nModifying Menu: {cont.fn} {cont.ln}\n1. First Name>\n2. Last Name\n3. Phone Number\n4. Street Address\n5. City\n6. Zip\n7. Save", 1, 7))
+        match userModify:
+            case 1:
+                cont.fn = input("Enter First name: ").strip().capitalize
+            case 2:
+                cont.ln = input("Enter First name: ").strip().capitalize
+            case 3:
+                cont.ph = input("Enter Phone: ").strip()
+            case 4:
+                cont.addr = input("Enter Address: ").strip()
+            case 5:
+                cont.city = input("Enter City: ").strip()
+            case 6:
+                cont.zip = input("Enter Zip: ").strip()
+            case 7:
+                break
 def main():
     contact = read_file()
     play = True
@@ -52,7 +66,6 @@ def main():
                 city = input("City: ").strip()
                 zip_code = input("Zip code: ").strip()
                 contact.append(Contact(fn, ln, ph, addr, city, zip_code))
-                print("add contacts")
             case 3:# Search Contacts
                 search = int(check_input.get_int_range("\nSearch contacts\n1. Search by Last Name\n2. Search by zip code\n>", 1, 2))
                 matches = []
@@ -80,10 +93,10 @@ def main():
                         else:
                             print("No matches found")
             case 4:#Modify Contacts
-                
-                print("modify contacts")
+                modify_contact(contact)
             case 5:#Save & Quit
                 write(contact)
+                print("\nSaving File...\nEnding Program")
                 play = False
 
 if __name__ == '__main__':
