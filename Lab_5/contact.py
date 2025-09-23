@@ -8,13 +8,9 @@ class Contact:
         self.zip = zip
 
     def __lt__(self,other):
-        self.other = other
-        if self.ln == other.ln:
-            if self.fn == other.fn:
-                return True
-            else:
-                return False
-        return f"{self.fn} is not {other.ln}"
+        if self.ln != other.ln:
+            return self.ln < other.ln
+        return self.fn < other.fn
             
     def __str__(self):
         return f"{self.ln} {self.fn}\n{self.ph}\n{self.addr}\n{self.city}\n{self.zip}\n"

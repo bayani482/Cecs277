@@ -16,4 +16,3 @@ Major,Nelson,555-4234,1020 Palm Drive,Cocoa Beach,33390
 Ricky,Ricardo,555-4231,4 East 68th Street,New York,10101
 Richie,Cunningham,555-6748,565 Clinton Drive,Milwaukee,22939
 Fred,Sanford,555-8737,9114 Central,Los Angeles,90633
-Herman,Munsterv2,555-1313,1313 Mockingbird Lane,Pleasantville,10394

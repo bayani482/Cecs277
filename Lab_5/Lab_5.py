@@ -45,8 +45,8 @@ def main():
                     print(f"{key + 1}. {value}")
             case 2:# Add Contacts
                 print("\nEnter new contact information:")
-                fn = input("First name: ").strip()
-                ln = input("Last name: ").strip()
+                fn = input("First name: ").strip().capitalize()
+                ln = input("Last name: ").strip().capitalize()
                 ph = input("Phone number: ").strip()
                 addr = input("Street address: ").strip()
                 city = input("City: ").strip()
@@ -58,15 +58,28 @@ def main():
                 matches = []
                 match search:
                     case 1:#search by last name
-                        lastNameSearch = input("Enter Last Name:").strip
-                        dummy = Contact("", lastNameSearch, "", "", "", "")
-                        for c in contact:
-                            if not (c < dummy or dummy < c):
-                                matches.append(c)
+                        lastNameSearch = input("Enter Last Name:").strip().capitalize()
+                        searchContact = Contact("", lastNameSearch, "", "", "", "")
+                        for i in contact:
+                            if i.ln.lower() == lastNameSearch.lower():
+                                matches.append(i)
+                        if matches:
+                            for c in matches:
+                                print(c)
+                        else:
+                            print("No matches found")
                     case 2:# search by zip
-                        
+                        zipSearch = input("Enter zip:").strip()
+                        searchContact = Contact("", "", "", "", "", zipSearch)
+                        for i in contact:
+                            if i.zip == zipSearch:
+                                matches.append(i)
+                        if matches:
+                            for c in matches:
+                                print(c)
+                        else:
+                            print("No matches found")
             case 4:#Modify Contacts
-                
                 
                 print("modify contacts")
             case 5:#Save & Quit
