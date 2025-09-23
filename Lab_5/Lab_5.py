@@ -14,7 +14,7 @@ def read_file():
     with open("addresses.txt","r") as addresses:
         for line in addresses:
             contactInfo = line.strip().split(",")
-            if len(contactInfo) == 6:  # make sure data is valid
+            if len(contactInfo) == 6:
                 person = Contact(*contactInfo)
                 address_list.append(person)
 
@@ -22,24 +22,37 @@ def read_file():
     return address_list
 
 def write(contacts):
-    with open("addresses2.txt","w") as addresses:
+    with open("addresses2.txt","w") as addresses:# change back to addresses.txt debug
         for contact in contacts:
-            addresses.write(repr()contact + "\n")
+            addresses.write(repr(contact) + "\n")#
         
 def get_menu_choice():
-    userInput = int(check_input.get_int_range("\n1.Display Contacts\n2.Add Contacts\n3.Search Contacs\n4.Modify Contacts\n5.Save and Quit\n>", 1, 5))
+    userInput = int(check_input.get_int_range("\n1.Display Contacts\n2.Add Contacts\n3.Search Contacts\n4.Modify Contacts\n5.Save and Quit\n>", 1, 5))
     return userInput
+
 def modify_contact(cont):
     print("modify_contact")
-
 
 def main():
     contact = read_file()
     play = True
     while play:
-        get_menu_choice()
-        if get_menu_choice() == 5:
-            play = False
+        userChoice = get_menu_choice()
+
+        match userChoice:
+            case 1:#display contacts
+                print(f"Number of contacts: {len(contact)}")
+                for key, value in enumerate(contact):
+                    print(f"{key + 1}. {value}")
+            case 2:# Add Contacts
+                print("add contacts")
+            case 3:# Search Contacts
+                print("search contacts")
+            case 4:#Modify Contacts
+                write(contact)
+                print("modify contacts")
+            case 5:#Save & Quit
+                play = False
 
 if __name__ == '__main__':
     main()

@@ -17,7 +17,7 @@ class Contact:
         return f"{self.fn} is not {other.ln}"
             
     def __str__(self):
-        return f"{self.ln},{self.fn},{self.ph},{self.addr},{self.city},{self.zip}"
+        return f"{self.ln} {self.fn}\n{self.ph}\n{self.addr}\n{self.city}\n{self.zip}\n"
     
     def __repr__(self):
-        return f"{self.ln} {self.fn}\n{self.ph}\n{self.addr}\n{self.city}\n{self.zip}"
+        return f"{self.fn},{self.ln},{self.ph},{self.addr},{self.city},{self.zip}"
