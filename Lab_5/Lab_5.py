@@ -45,10 +45,25 @@ def main():
                 for key, value in enumerate(contact):
                     print(f"{key + 1}. {value}")
             case 2:# Add Contacts
+                print("\nEnter new contact information:")
+                fn = input("First name: ").strip()
+                ln = input("Last name: ").strip()
+                ph = input("Phone number: ").strip()
+                addr = input("Street address: ").strip()
+                city = input("City: ").strip()
+                zip_code = input("Zip code: ").strip()
+                contact.append(Contact(fn, ln, ph, addr, city, zip_code))
                 print("add contacts")
             case 3:# Search Contacts
-                print("search contacts")
+                print("\nSearch contacts")
+                print("1. By last name")
+                print("2. By zip code")
+                choice = input("Enter choice (1 or 2): ").strip()
+
+                matches = []
+                
             case 4:#Modify Contacts
+                
                 write(contact)
                 print("modify contacts")
             case 5:#Save & Quit
