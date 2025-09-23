@@ -9,7 +9,6 @@ class Contact:
 
     def __lt__(self,other):
         self.other = other
-
         if self.ln == other.ln:
             if self.fn == other.fn:
                 return True
@@ -21,4 +20,4 @@ class Contact:
         return f"{self.ln},{self.fn},{self.ph},{self.addr},{self.city},{self.zip}"
     
     def __repr__(self):
-        pass
+        return f"{self.ln} {self.fn}\n{self.ph}\n{self.addr}\n{self.city}\n{self.zip}"
