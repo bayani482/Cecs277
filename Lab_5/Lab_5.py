@@ -61,7 +61,7 @@ def main():
                         lastNameSearch = input("Enter Last Name:").strip().capitalize()
                         searchContact = Contact("", lastNameSearch, "", "", "", "")
                         for i in contact:
-                            if i.ln.lower() == lastNameSearch.lower():
+                            if i.ln == lastNameSearch:
                                 matches.append(i)
                         if matches:
                             for c in matches:
