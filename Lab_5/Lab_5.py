@@ -24,8 +24,7 @@ def read_file():
 def write(contacts):
     with open("addresses2.txt","w") as addresses:# change back to addresses.txt debug
         for contact in contacts:
-            addresses.write(repr(contact) + "\n")#
-        
+            addresses.write(repr(contact) + "\n")
 def get_menu_choice():
     userInput = int(check_input.get_int_range("\n1.Display Contacts\n2.Add Contacts\n3.Search Contacts\n4.Modify Contacts\n5.Save and Quit\n>", 1, 5))
     return userInput
@@ -55,18 +54,23 @@ def main():
                 contact.append(Contact(fn, ln, ph, addr, city, zip_code))
                 print("add contacts")
             case 3:# Search Contacts
-                print("\nSearch contacts")
-                print("1. By last name")
-                print("2. By zip code")
-                choice = input("Enter choice (1 or 2): ").strip()
-
+                search = int(check_input.get_int_range("\nSearch contacts\n1. Search by Last Name\n2. Search by zip code\n>", 1, 2))
                 matches = []
-                
+                match search:
+                    case 1:#search by last name
+                        lastNameSearch = input("Enter Last Name:").strip
+                        dummy = Contact("", lastNameSearch, "", "", "", "")
+                        for c in contact:
+                            if not (c < dummy or dummy < c):
+                                matches.append(c)
+                    case 2:# search by zip
+                        
             case 4:#Modify Contacts
                 
-                write(contact)
+                
                 print("modify contacts")
             case 5:#Save & Quit
+                write(contact)
                 play = False
 
 if __name__ == '__main__':
