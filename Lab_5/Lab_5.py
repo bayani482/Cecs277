@@ -4,6 +4,9 @@ LAB 5
 Student 1: Javier Jacobo
 Student 2: Bryan Bayani
 
+This is a progam that reads a file of contacts and puts them into a list. The user would then be able view,search and manipulate the list by adding someone to it 
+
+
 """
 import check_input
 from contact import Contact
@@ -29,13 +32,14 @@ def get_menu_choice():
     userInput = int(check_input.get_int_range("\n1.Display Contacts\n2.Add Contacts\n3.Search Contacts\n4.Modify Contacts\n5.Save and Quit\n>", 1, 5))
     return userInput
 def modify_contact(cont):
+    
     while True:
-        userModify = int(check_input.get_int_range(f"\nModifying Menu: {cont.fn} {cont.ln}\n1. First Name>\n2. Last Name\n3. Phone Number\n4. Street Address\n5. City\n6. Zip\n7. Save", 1, 7))
+        userModify = int(check_input.get_int_range(f"\nModifying Menu: {cont.fn} {cont.ln}\n1. First Name>\n2. Last Name\n3. Phone Number\n4. Street Address\n5. City\n6. Zip\n7. Save\n>", 1, 7))
         match userModify:
             case 1:
-                cont.fn = input("Enter First name: ").strip().capitalize
+                cont.fn = input("Enter First name: ").strip().capitalize()
             case 2:
-                cont.ln = input("Enter First name: ").strip().capitalize
+                cont.ln = input("Enter First name: ").strip().capitalize()
             case 3:
                 cont.ph = input("Enter Phone: ").strip()
             case 4:
@@ -45,7 +49,7 @@ def modify_contact(cont):
             case 6:
                 cont.zip = input("Enter Zip: ").strip()
             case 7:
-                break
+                continue
 def main():
     contact = read_file()
     play = True
@@ -93,7 +97,11 @@ def main():
                         else:
                             print("No matches found")
             case 4:#Modify Contacts
-                modify_contact(contact)
+                firstNameSearch = input("Enter first Name:").strip().capitalize()
+                lastNameSearch = input("Enter Last Name:").strip().capitalize()
+                searchContact = Contact(firstNameSearch, lastNameSearch, "", "", "", "")
+                
+                modify_contact(searchContact)
             case 5:#Save & Quit
                 write(contact)
                 print("\nSaving File...\nEnding Program")
