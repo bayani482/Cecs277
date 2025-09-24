@@ -39,7 +39,7 @@ class Contact:
     
     def __repr__(self):
         """Returns the rectangle as a formatted string.
-Returns:
-str: A string with location, width, and height.
+        Returns:
+        str: A string with location, width, and height.
 """
         return f"{self.fn},{self.ln},{self.ph},{self.addr},{self.city},{self.zip}"

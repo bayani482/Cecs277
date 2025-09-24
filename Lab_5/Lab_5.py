@@ -98,14 +98,20 @@ def main():
                             print("No matches found")
             case 4:#Modify Contacts
                 matches = []
+                
                 firstNameSearch = input("Enter first Name:").strip().capitalize()
                 lastNameSearch = input("Enter Last Name:").strip().capitalize()
                 searchContact = Contact(firstNameSearch, lastNameSearch, "", "", "", "")
                 for i in contact:
                             if i.ln == lastNameSearch and i.fn == firstNameSearch:
                                 matches.append(i)
+                print(f"\nNumber of contacts: {len(matches)}")
+                for key, value in enumerate(matches):
+                    print(f"{key + 1}. {value}")
+                object = userModify = int(check_input.get_int_range(f"Which Contact do you want to edit\n>", 1, len(matches)))
+
+                modify_contact(matches[object-1])
                 
-                modify_contact(matches[0])
             case 5:#Save & Quit
                 write(contact)
                 print("\nSaving File...\nEnding Program")
