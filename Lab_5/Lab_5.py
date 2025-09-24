@@ -32,8 +32,8 @@ def get_menu_choice():
     userInput = int(check_input.get_int_range("\n1.Display Contacts\n2.Add Contacts\n3.Search Contacts\n4.Modify Contacts\n5.Save and Quit\n>", 1, 5))
     return userInput
 def modify_contact(cont):
-    
-    while True:
+    valid = True
+    while valid:
         userModify = int(check_input.get_int_range(f"\nModifying Menu: {cont.fn} {cont.ln}\n1. First Name>\n2. Last Name\n3. Phone Number\n4. Street Address\n5. City\n6. Zip\n7. Save\n>", 1, 7))
         match userModify:
             case 1:
@@ -49,7 +49,7 @@ def modify_contact(cont):
             case 6:
                 cont.zip = input("Enter Zip: ").strip()
             case 7:
-                continue
+                valid = False
 def main():
     contact = read_file()
     play = True
@@ -97,11 +97,15 @@ def main():
                         else:
                             print("No matches found")
             case 4:#Modify Contacts
+                matches = []
                 firstNameSearch = input("Enter first Name:").strip().capitalize()
                 lastNameSearch = input("Enter Last Name:").strip().capitalize()
                 searchContact = Contact(firstNameSearch, lastNameSearch, "", "", "", "")
+                for i in contact:
+                            if i.ln == lastNameSearch and i.fn == firstNameSearch:
+                                matches.append(i)
                 
-                modify_contact(searchContact)
+                modify_contact(matches[0])
             case 5:#Save & Quit
                 write(contact)
                 print("\nSaving File...\nEnding Program")

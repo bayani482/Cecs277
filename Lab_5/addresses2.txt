@@ -8,7 +8,7 @@ Peter,Griffin,555-2315,31 Spooner Street,Quahog,50332
 Hank,Hill,555-9834,84 Rainey Street,Arien,50667
 Sherlock,Holmes,207 224 3688,221 Baker Street,London,19303
 Ralph,Kramden,555-4252,328 Chauncey Street,Brooklyn,10101
-Herman,Munster,555-1313,1313 Mockingbird Lane,Pleasantville,10394
+Herman2,Munster,555-1313,1313 Mockingbird Lane,Pleasantville,10394
 Major,Nelson,555-4234,1020 Palm Drive,Cocoa Beach,33390
 Ricky,Ricardo,555-4231,4 East 68th Street,New York,10101
 Fred,Sanford,555-8737,9114 Central,Los Angeles,90633
