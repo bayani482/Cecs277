@@ -70,4 +70,11 @@ class Die:
         """
         return self._value == other._value
     def __sub__(self,other):
+        """
+        subtracts the _values of two dice.
+        Args:
+        other (Die): Another die object.
+        Returns:
+        int: The difference of self._value and other._value.
+        """
         return self._value - other._value

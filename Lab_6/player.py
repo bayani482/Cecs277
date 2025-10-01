@@ -18,7 +18,9 @@ class Player:
         
         """
         self._dice = [Die(), Die(),Die()]
+        self._dice.sort()
         self._points = 0
+
     @property
     def points(self):
         """
@@ -47,10 +49,9 @@ class Player:
             bool: True if there is a pair, False otherwise.
         """
         for i in range(len(self._dice)):
-            for j in range(i + 1, len(self._dice)):
-                if self._dice[i] == self._dice[j]:
-                    self._points += 1
-                    return True
+            if self._dice[i] == self._dice[i-1]:
+                self._points += 1
+                return True
         return False
     def has_three_of_a_kind(self):
         """
@@ -59,7 +60,7 @@ class Player:
         Returns:
             bool: True if there is a pair, False otherwise.
         """
-        if self._dice[0] == self._dice[1] and self._dice[1] == self._dice[2]:
+        if self._dice[0] == self._dice[1] == self._dice[2]:
             self._points += 3
             return True
         else:
@@ -71,7 +72,7 @@ class Player:
         Returns:
             bool: True if there is a pair, False otherwise.
         """
-        if self._dice[0] - self._dice[1] == -1 and self._dice[1] - self._dice[2] == -1:
+        if self._dice[1] - self._dice[0] == 1 and self._dice[2] - self._dice[1] == 1:
             self._points += 2
             return True
         else:

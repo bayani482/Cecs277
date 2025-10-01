@@ -13,7 +13,7 @@ from player import Player
 
 
 def take_turn(player):
-    """this function takes a player object and rolls the dice then checks for combinations and prints the results
+    """this function takes a player object and rolls the dice then checks for combinations and prints the results and points
 
     Args:
         player (list): list of three rolls
@@ -22,9 +22,9 @@ def take_turn(player):
     player.roll_dice()
     print(player)
     if player.has_three_of_a_kind():
-        print(f"Three of a Kind of {player._dice[0]._value}!")
+        print("Three of a Kind!")
     elif player.has_series():
-        print(f"You got a Series of {player._dice[0]._value}!")
+        print("You got a Series of 3!")
     elif player.has_pair():
         print("You got a Pair!")
     else:
