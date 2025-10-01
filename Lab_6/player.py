@@ -40,7 +40,8 @@ class Player:
         self._dice.sort()
         return self._dice
     def has_pair(self):
-        """checks dice list to see if there is a pair if so adds 1 point to the players score
+        """
+        checks dice list to see if there is a pair if so adds 1 point to the players score
 
         Returns:
             bool: True if there is a pair, False otherwise.
@@ -52,7 +53,8 @@ class Player:
                     return True
         return False
     def has_three_of_a_kind(self):
-        """checks dice list to see if there is a three of a kind if so adds 3 point to the players score
+        """
+        checks dice list to see if there is a three of a kind if so adds 3 point to the players score
 
         Returns:
             bool: True if there is a pair, False otherwise.
@@ -63,20 +65,21 @@ class Player:
         else:
             return False
     def has_series(self):
-        """checks dice list to see if there is a series if so adds 2 point to the players score
+        """
+        checks dice list to see if there is a series if so adds 2 point to the players score
 
         Returns:
             bool: True if there is a pair, False otherwise.
         """
-        values = [d._value for d in self._dice]
-        values.sort()
-        if values[1] == values[0] + 1 and values[2] == values[1] + 1:
+        self._dice.sort()
+        if self._dice[0] - self._dice[1] == -1 and self._dice[1] - self._dice[2] == -1:
             self._points += 2
             return True
         else:
-            return False
+            return False        # Use Die's __sub__ to check for sequence
     def __str__(self):
-        """changes the player object to a string representation of the dice rolls
+        """
+        changes the player object to a string representation of the dice rolls
 
         Returns:
             str: formatted string of the dice rolls

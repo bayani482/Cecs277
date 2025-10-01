@@ -69,3 +69,5 @@ class Die:
         bool: True if self._value == other._value, otherwise False.
         """
         return self._value == other._value
+    def __sub__(self,other):
+        return self._value - other._value

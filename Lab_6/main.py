@@ -13,6 +13,11 @@ from player import Player
 
 
 def take_turn(player):
+    """this function takes a player object and rolls the dice then checks for combinations and prints the results
+
+    Args:
+        player (list): list of three rolls
+    """
     print("-Yahtzee-")
     player.roll_dice()
     print(player)
