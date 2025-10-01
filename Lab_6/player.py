@@ -71,7 +71,6 @@ class Player:
         Returns:
             bool: True if there is a pair, False otherwise.
         """
-        self._dice.sort()
         if self._dice[0] - self._dice[1] == -1 and self._dice[1] - self._dice[2] == -1:
             self._points += 2
             return True

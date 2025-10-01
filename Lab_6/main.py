@@ -5,7 +5,7 @@ Student 1: Javier Jacobo
 Student 2: Bryan Bayani
 
 This program is a game that rolls three dice and checks for either a pair, series, or three of a kind. You will earn points based on
-what combination you roll. The user can play as many times as they want  awnser Y to continue or N to stop.
+what combination you roll. The user can play as many times as they want awnser Y to continue or N to stop.
 
 """
 import check_input
@@ -18,7 +18,7 @@ def take_turn(player):
     Args:
         player (list): list of three rolls
     """
-    print("-Yahtzee-")
+    print("\n-Yahtzee-")
     player.roll_dice()
     print(player)
     if player.has_three_of_a_kind():
@@ -30,7 +30,7 @@ def take_turn(player):
     else:
         print("Aww. Too Bad.")
         
-    print(f"Score: {player._points}\n")
+    print(f"Score: {player._points}")
     
 def main():
     player = Player()
@@ -40,7 +40,7 @@ def main():
         play = check_input.get_yes_no("Play again? (Y/N): ")
 
 
-    print(f"Game Over\nFinal Score = {player._points}")
+    print(f"\nGame Over.\nFinal Score = {player._points}\n")
 
 if __name__ == "__main__":
     main()
