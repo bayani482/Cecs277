@@ -5,10 +5,8 @@ Main.py
 Student 1: Javier Jacobo
 Student 2: Bryan Bayani
 
-This is a program that allows a user to input there name and fight 3 different types of dragons. 
+This is a program that allows a user to input there name and fight 3 different types of dragons.
 """
-
-
 
 import random as rand
 
