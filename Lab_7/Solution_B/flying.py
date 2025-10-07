@@ -13,5 +13,7 @@ class FlyingDragon(Dragon):
             dmg = rand.randint(5,8)
             hero.take_damage(dmg)
             return f"{self.name} swoops down and hits you for {dmg} damage.\n"
+        else:
+            return f"{self.name} cant swoop down anymore,you take 0 damage.\n"
     def __str__(self):
         return super().__str__() + f"\nSwoops: {self.swoops} remaining"
