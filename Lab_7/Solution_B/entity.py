@@ -3,7 +3,7 @@ entity class
 this class is a base class for hero and dragon
 
 Returns:
-    _type_: _description_
+    str: returns a string representation of the entity in the format "name: hp/max_hp"
 """
 class Entity:
     """creates an entity with a name and hp
