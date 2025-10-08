@@ -12,6 +12,15 @@ from entity import Entity
 
 
 class Dragon(Entity):
+    """
+    creates a dragon entity with a name and hp.
+
+    Args:
+        Entity (object): a entity object
+    attributes:
+        _name: the name of the dragon
+        _hp: the current hp of the dragon
+    """
     def basic_attack(self, hero):
         """
         dragon attacks hero with a tail smash

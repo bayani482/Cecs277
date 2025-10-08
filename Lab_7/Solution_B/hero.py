@@ -13,14 +13,13 @@ from entity import Entity
 
 class Hero(Entity):
     """
-    creates a hero with a name and hp.
+    creates a hero entity with a name and hp.
 
     Args:
-        Entity (_type_): _description_
+        Entity (object): a entity object
     attributes:
         _name: the name of the hero
-        dragon: the dragon the hero is fighting
-
+        _hp: the current hp of the hero
     """
     def sword_attack(self, dragon):
         """
