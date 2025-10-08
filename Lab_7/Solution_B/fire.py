@@ -2,7 +2,6 @@
 firedragon class
 this class is a subclass of dragon
 
-
 Returns:
     __str__: returns a string of how many special attacks are left
 """
