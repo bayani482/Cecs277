@@ -38,14 +38,26 @@ def main():
             print(f"{key+1}. Attack {str(value)}")
         
         dragon_choice = check_input.get_int_range("Choose a dragon to attack: ",1,len(dragons))
-        attack_choice = check_input.get_int_range("Attack with:\n1. Arrow (1 D12)\n2. Sword (2 D6)\nEnter weapon: ",1,2)
         target = dragons[dragon_choice - 1]
-
+        # Uncomment beliw to see what dragon you are attacking.
+        # print(f"You have chosen to attack {target._name}")
+        attack_choice = check_input.get_int_range("Attack with:\n1. Arrow (1 D12)\n2. Sword (2 D6)\nEnter weapon: ",1,2)
+                
         match attack_choice:
             case 1:
                 print(hero.arrow_attack(target))
             case 2:
                 print(hero.sword_attack(target))
+
+        dragon_attack = rand.randint(1,2)
+
+        random_dragon = rand.randint(0,len(dragons)-1)
+
+        match dragon_attack:
+            case 1:
+                print(dragons[random_dragon].basic_attack(hero))
+            case 2:
+                print(dragons[random_dragon].special_attack(hero))
             
         if target._hp <= 0:
             print(f"You have defeated the {target._name}!")
@@ -55,9 +67,6 @@ def main():
                 play = False
                 break
                 
-            
-        random_dragon = rand.randint(0,len(dragons)-1)
-        print(dragons[random_dragon].special_attack(hero))
-
 if __name__ == '__main__':
     main()
+
