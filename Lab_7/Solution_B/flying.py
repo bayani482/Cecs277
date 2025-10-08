@@ -40,4 +40,7 @@ class FlyingDragon(Dragon):
         else:
             return f"{self.name} cant swoop down anymore,you take 0 damage.\n"
     def __str__(self):
+        """
+        returns a string representation of the flying dragon special attack remaining
+        """
         return super().__str__() + f"\nSwoops: {self.swoops} remaining"

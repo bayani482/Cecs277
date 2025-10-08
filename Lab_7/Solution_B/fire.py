@@ -42,4 +42,7 @@ class FireDragon(Dragon):
         else:
             return f"{self.name} cant shoot fire anymore,you take 0 damage.\n"
     def __str__(self):
+        """
+        returns a string representation of the fire dragon special attack remaining
+        """
         return super().__str__() + f"\nFire Shots: {self.f_shots} remaining"
