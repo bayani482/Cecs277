@@ -31,9 +31,9 @@ class FireDragon(Dragon):
         Methods:
             take_damage(dmg): reduces the hp of the dragon by dmg and returns the current hp
         Returns:
-            str: a string of the attack performed and the damage done to the hero
+            str: a string of the attack performed and the damage done to the dragon
         """
-        if self.swoops > 0:
+        if self.f_shots > 0:
             self.f_shots -= 1
             dmg = rand.randint(6,9)
             hero.take_damage(dmg)
