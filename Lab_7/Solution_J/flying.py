@@ -8,9 +8,9 @@ class FlyingDragon(Dragon):
 
     def special_attack(self, hero):
         if self._swoop_attacks > 0:
+            self._swoop_attacks -= 1
             dmg = rand.randint(5,8)
             hero.take_damage(dmg)
-            self._swoop_attacks -= 1
             return f"{self._name} swoops at you for {dmg} damage!"
         else:
             return f"{self._name} tries to swoop at you, but failed"

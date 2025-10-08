@@ -13,7 +13,7 @@ from dragon import Dragon
 
 
 class FireDragon(Dragon):
-    def __init__(self, name, max_hp,f_shots =3):
+    def __init__(self, name, max_hp):
         """
         initializes the flying dragon with a name, max hp, and number of swoops
         Args:
@@ -22,7 +22,8 @@ class FireDragon(Dragon):
             f_shots (int, optional): _description_. Defaults to 3.
         """
         super().__init__(name, max_hp)
-        self.f_shots = f_shots
+        self.f_shots = 3
+        
     def special_attack(self, hero):
         """
         dragon attacks hero with a special attack (fire shot) if it the fireshot count is less than 0 it does 0 damage

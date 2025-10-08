@@ -8,17 +8,18 @@ Basic rpg program to display inheritence in classes
 
 """
 import random as rand
-from hero import Hero
-from dragon import Dragon
-from flying import FlyingDragon
-from fire import FireDragon
+
 import check_input
+from dragon import Dragon
+from fire import FireDragon
+from flying import FlyingDragon
+from hero import Hero
+
 
 def main():
     name = input("What is your name, challenger?\n> ")
     hero = Hero(name,50)
-    dragons = [Dragon("Deadly Nadder",10),FireDragon("Gronckle",15),FlyingDragon("Timberjack",20)
-               ]
+    dragons = [Dragon("Deadly Nadder",10),FireDragon("Gronckle",15),FlyingDragon("Timberjack",20)]
     print(f"Welcome to dragon training, {hero._name}\nYou must defeat 3 dragons.")
     play = True
 
@@ -28,18 +29,13 @@ def main():
             print("You have been defeated")
             play = False
             break
-
-            
-        if len(dragons) == 0:
-            print("All dragons are dead")
-            play = False
-
+        
         for key,value in enumerate(dragons):
             print(f"{key+1}. Attack {str(value)}")
         
         dragon_choice = check_input.get_int_range("Choose a dragon to attack: ",1,len(dragons))
         target = dragons[dragon_choice - 1]
-        # Uncomment beliw to see what dragon you are attacking.
+        # Uncomment below to see what dragon you are attacking.
         # print(f"You have chosen to attack {target._name}")
         attack_choice = check_input.get_int_range("Attack with:\n1. Arrow (1 D12)\n2. Sword (2 D6)\nEnter weapon: ",1,2)
                 
@@ -51,19 +47,19 @@ def main():
 
         dragon_attack = rand.randint(1,2)
 
-        random_dragon = rand.randint(0,len(dragons)-1)
+        random_dragon = rand.choice(dragons)
 
         match dragon_attack:
             case 1:
-                print(dragons[random_dragon].basic_attack(hero))
+                print(random_dragon.basic_attack(hero))
             case 2:
-                print(dragons[random_dragon].special_attack(hero))
+                print(random_dragon.special_attack(hero))
             
         if target._hp <= 0:
             print(f"You have defeated the {target._name}!")
             dragons.remove(target)
             if len(dragons) == 0:
-                print("All dragons are dead")
+                print("\nCongratulations! You have defeated all 3 dragons, you have passed the trials.")
                 play = False
                 break
                 
