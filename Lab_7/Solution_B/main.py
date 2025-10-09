@@ -43,7 +43,7 @@ def main():
             case 3:
                 dragon = dragons[2]
 
-        hero_attack = int(check_input.get_int_range(f"Attack with:\n1. Arrow (1 D12 \n2. Sword(2 D6)\nEnter Weapon:",1,2))
+        hero_attack = int(check_input.get_int_range(f"Attack with:\n1. Arrow (1 D12)\n2. Sword(2 D6)\nEnter Weapon: ",1,2))
         match hero_attack:
             case 1:
                 print(hero.arrow_attack(dragon))

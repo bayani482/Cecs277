@@ -64,4 +64,4 @@ class Entity:
         """
         returns a string representation of the entity in the format "name: hp/max_hp
         """
-        return f"{self._name}:{self._hp}/{self._max_hp}"
+        return f"{self._name}: {self._hp}/{self._max_hp}"
