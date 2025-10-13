@@ -23,9 +23,7 @@ class Vehicle(abc.ABC):
     
     def fast(self,obs_loc):
         if self._energy >= 5:
-            # Delta = change of
-            delta_speed = rand.randint(-1,1)
-            self._speed += delta_speed
+            self._speed += rand.randint(-1,1)
             self._energy -= 5
             if self._speed < obs_loc:
                 self._position += self._speed
@@ -38,9 +36,7 @@ class Vehicle(abc.ABC):
         return f"{self._name} quickly moves {self._position} units forward!"
     
     def slow(self,obs_loc):
-        self._speed *= 0.5
-        delta_speed = rand.randint(-1,1)  
-        self._speed += delta_speed
+        self._speed = int(self._speed*0.5 + rand.randint(-1,1))
         self._position += self._speed
         if self._position == obs_loc:
             self._position += 1
@@ -53,4 +49,4 @@ class Vehicle(abc.ABC):
         pass
     
     def __str__(self):
-        return f"Name: {self._name}\nPosition: {self._position}\nEnergy: {self._energy}"
+        return f"Name: {self._name}\nPosition: {self._position}\nEnergy: {self._energy}\nSpeed: {self._speed}"
