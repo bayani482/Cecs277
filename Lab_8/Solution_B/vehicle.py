@@ -28,24 +28,24 @@ class Vehicle(abc.ABC):
             move = rand.randint(-1,1)
         else:
             move = 1
-        if obs_loc < self._position + self._speed:
+        if obs_loc < self._position + self._speed + move:
             self._position += self.speed
-            return f"{self._name} moved fast!"
+            return f"{self._name} quickly moves {self._speed} units."
         elif obs_loc >= self.position:
             self._position = obs_loc
             return f"{self._name} crashed into an obstacle."
 
     def slow(self, obs_loc):
         move = int(self._speed/2) + rand.randint(-1,1)
-        if obs_loc < self._position + move:
+        if obs_loc < self._position + move or obs_loc == 0:
             self._position += move
-            return f"{self._name} moved slowly."
+            return f"{self._name} slowly moves {self.speed} units."
         elif obs_loc >= self._position:
             self._position += move
             return f"{self._name} moved slowly around obstacle."
         
     def __str__(self):
-        return f"{self._name} [Position: -{self._position}, Energy - {self._energy}]"
+        return f"{self._name} [Position: - {self._position}, Energy - {self._energy}]"
     
     @abc.abstractmethod
     def special_move(self, obs_loc):
