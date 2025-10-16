@@ -1,7 +1,6 @@
 import random as rand
 
-import vehicle as Vehicle
-
+from vehicle import Vehicle
 
 class Truck(Vehicle):
     def special_move(self,obs_loc):
