@@ -1,23 +1,18 @@
-
 import random as rand
-
 from vehicle import Vehicle
 
-
 class Car(Vehicle):
-    def special_move(self,obs_loc):
+    """Car: has Nitro Boost special (1.5x speed, costs energy)."""
+    def special_move(self, obs_loc):
+        """Nitro Boost: consumes 15 energy if available and moves ~1.5x speed."""
+        move = 1
         if self._energy >= 15:
             self._energy -= 15
-            move = int(self._speed * 1.5) + rand.randint(-1,1)
-            movement = f"{self._name} uses Nitro Boost and moves {move} units!"
+            move = max(1, int(self._speed * 1.5) + rand.randint(-1, 1))
         else:
             move = 1
-            movement = f"{self._name} is low on energy and only moves {move} unit."
-
-        if obs_loc >= self._position:
+        self._position += move
+        if obs_loc <= self._position and obs_loc < obs_loc + 1:
             self._position = obs_loc
-            movement = f"{self._name} crashed into an obstacle."
-            return  movement
-        else:
-            self._position += self._speed + move
-            return  movement
+            return f"{self._name} CRASHED into an obstacle!"
+        return f"{self._name} uses Nitro Boost and moves {move} units."
