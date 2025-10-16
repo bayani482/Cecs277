@@ -1,6 +1,6 @@
 
 
-import vehicle as Vehicle
+from vehicle import Vehicle
 
 
 class Truck(Vehicle):
