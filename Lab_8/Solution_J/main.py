@@ -100,33 +100,33 @@ def main():
 
             # decide action for this vehicle
             if lane == player_index and not player_finished:
+                action = player_action
             else:
                 energy_val = v.get_energy()
                 if energy_val is not None and energy_val <= 0:
-                    player_action = "slow"
+                    action = "slow"
                 else:
                     r = rand.random()
                     if r < 0.40:
-                        player_action = "slow"
+                        action = "slow"
                     elif r < 0.70:
-                        player_action = "fast"
+                        action = "fast"
                     else:
-                        player_action = "special"
+                        action = "special"
 
             # call movement method with next obstacle location and print its description
             old_pos = v.get_position()
-            if player_action == "fast":
+            if action == "fast":
                 print(v.fast(next_obs))
-            elif player_action == "slow":
+            elif action == "slow":
                 print(v.slow(next_obs))
             else:
                 print(v.special_move(next_obs))
             
 
             # cap positions before using them to index the track to avoid IndexError
-            old_pos = v.get_position()
             new_pos = v.get_position()
-
+ 
             last_index = track_length - 1
             old_pos_capped = min(max(old_pos, 0), last_index)
             new_pos_capped = min(max(new_pos, 0), last_index)
