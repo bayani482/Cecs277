@@ -14,13 +14,21 @@ class Car(Vehicle):
             move = 1
             movement = f"{self._name} is low on energy and only moves {move} unit."
 
-        if obs_loc >= self._position:
-            self._position = obs_loc
-            movement = f"{self._name} crashed into an obstacle."
-            return  movement
-        else:
-            self._position += self._speed + move
-            return  movement
+        move = max(1, move)
+        
+        if obs_loc is None:
+            self._position += move
+            if self._position > 100:
+                self._position = 100
+            return movement
 
+        if move >= obs_loc:
+            move = obs_loc
+            self._position += move
+            if self._position > 100:
+                self._position = 100
+            return f"{self._name} crashed into an obstacle."
         
-        
+        self._position += move
+        return  movement
+

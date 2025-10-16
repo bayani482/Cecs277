@@ -4,7 +4,7 @@ import random as rand
 
 class Vehicle(abc.ABC):
     def __init__(self, name, initial, speed):
-        self.name = name
+        self._name = name
         self._initial = initial
         self._position = 0
         self._speed = speed
@@ -22,28 +22,53 @@ class Vehicle(abc.ABC):
     def energy(self):
         return self._energy
     
+    @property
+    def speed(self):
+        return self._speed
+    
     def fast(self, obs_loc):
         if self._energy >= 5:
             self._energy -= 5
-            move = rand.randint(-1,1)
+            move = self._speed + rand.randint(-1,1)
         else:
             move = 1
-        if obs_loc < self._position + self._speed + move:
-            self._position += self.speed
+
+        move = max(1, move)
+        
+        if obs_loc is None:
+            if self._position > 100:
+                self._position = 100
             return f"{self._name} quickly moves {self._speed} units."
-        elif obs_loc >= self.position:
-            self._position = obs_loc
+
+        if move >= obs_loc:
+            move = obs_loc
+            self._position += move
+            if self._position > 100:
+                self._position = 100
             return f"{self._name} crashed into an obstacle."
+        
+        self._position += move
+        return f"{self._name} quickly moves {self._speed} units."
 
     def slow(self, obs_loc):
         move = int(self._speed/2) + rand.randint(-1,1)
-        if obs_loc < self._position + move or obs_loc == 0:
-            self._position += move
-            return f"{self._name} slowly moves {self.speed} units."
-        elif obs_loc >= self._position:
-            self._position += move
-            return f"{self._name} moved slowly around obstacle."
+        move = max(1, move)
         
+        if obs_loc is None:
+            self._position += move
+            if self._position > 100:
+                self._position = 100
+            return f"{self._name} slowly moves {move} units."
+    
+        if move >= obs_loc:
+            self._position += move
+            if self._position > 100:
+                self._position = 100
+            return f"{self._name} slowly moves around the obstacle {move} units."
+        
+        self._position += move
+        return f"{self._name} slowly moves {move} units."
+
     def __str__(self):
         return f"{self._name} [Position: - {self._position}, Energy - {self._energy}]"
     

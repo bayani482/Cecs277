@@ -1,6 +1,6 @@
-import random as rand
 
-import vehicle as Vehicle
+
+from vehicle import Vehicle
 
 
 class Truck(Vehicle):
@@ -9,11 +9,8 @@ class Truck(Vehicle):
             self._energy -= 15
             move = int(self._speed * 2)
             self._position += move
-
-            movement = f"{self._name}  Ram forward {move} units."
+            return f"{self._name} Ram forward {move} units."
         else:
-            move = 1
-            self._position += move
-            movement = f"{self._name} tries to ram forward but, is all out of energy and moved {move} unit."
+            self._position += 1
+            return f"{self._name} tries to ram forward but, is all out of energy and moved 1 unit."
 
-        return movement

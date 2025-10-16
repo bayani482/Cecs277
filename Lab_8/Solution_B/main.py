@@ -7,55 +7,73 @@ import motorcycle
 import truck
 import vehicle
 
-def display_track(track, vehicles):
-    print("\nTrack:")
-    for i, row in enumerate(track):
-        print(''.join(row) + f"  {vehicles[i]}")
-    print()
 
-def find_next_obstacle(track, lane, pos):
-    try:
-        return track[lane].index('#', pos + 1)
-    except ValueError:
-        return 9999  # No obstacle ahead
-
-def main():
-    track_length = 100
-    lanes = 3
-    
-    vehicles_names = ['Car','Truck','Motorcycle']
-    vehicle_letters = ['C','T','M']
-    vehicle_speeds = [7,8,6]
-    
-    # Prompt user to choose a vehicle
-    print("Choose your vehicle:")
-    for i, name in enumerate(vehicles_names):
-        print(f"{i+1}. {name}")
-    choice = check_input.get_int_range("Enter choice: ", 1, 3) - 1
-    while len(winners) < len(vehicles):
-        print("play game")
-    # Create vehicle objects
-        vehicles = []
-        for i in range(3):
-            if vehicles_names[i] == 'Car':
-                vehicles.append(car.Car(vehicles_names[i], vehicle_letters[i], vehicle_speeds[i]))
-            elif vehicles_names[i] == 'Motorcycle':
-                vehicles.append(motorcycle.Motorcycle(vehicles_names[i], vehicle_letters[i], vehicle_speeds[i]))
-            else:
-                vehicles.append(vehicle.Vehicle(vehicles_names[i], vehicle_letters[i], vehicle_speeds[i]))  # Placeholder for Truck
-
-        # Set the player's vehicle initial to 'P'
-        vehicles[choice]._initial = 'P'
-        # Create track and place vehicles at start
+def  create_track(vehicles):
+    track = []
+    for v in vehicles:
+        lane = ['-' for _ in range(100)]
+        for _ in range(2):
+            obstacle_pos = rand.randint(10, 99)
+            lane[obstacle_pos] = '0'
+        lane[0] = v.initial
+        track.append(lane)
 
     for i, v in enumerate(vehicles):
         track[i][0] = v.initial
 
+    return track
+
+def display_track(track, vehicles):
+    #print vehicle status
+    for i in vehicles:
+        print(i)
+    #print track
+    for i, row in enumerate(track):
+        print(''.join(row))
+
+
+def find_next_obstacle(track, lane, pos):
+    row = track[lane]
+    for i in range(pos + 1, len(row)):
+        if row[i] == '0':
+            return i - pos
+    return None
+
+
+def main():
+    vehicles_names = ['Lightning Car','Swift Bike','Behemoth Truck']
+    vehicle_letters = ['C','M','T']
+    vehicle_speeds = [7,8,6]
+    track_length = 100
+
+    
+    # Prompt user to choose a vehicle
+    print("Red Racer!\nChoose a vehicle and race it down the track (player = 'P'). Slow down for obstacles ('0') or else you'll crash!")
+    print("1. Lightning Car - a fast car. Speed: 7. Special: Nitro Boost (1.5x speed)\n2. Swift Bike - a speedy motorcycle. Speed: 8. Special: Wheelie (2x speed but there's a chance you'll wipe out).\n3. Behemoth Truck - a heavy truck. Speed: 6. Special: Ram (2x speed and it smashes through obstacles).")
+    
+    # for i, name in enumerate(vehicles_names):
+    #     print(f"{i+1}. {name}")
+    
+    choice = check_input.get_int_range("Choose your Vehicle(1-3): ", 1, 3) -1
+    # Create vehicle objects
+    vehicles = []
+    for i in range(3):
+        if vehicles_names[i] == 'Lightning Car':
+            vehicles.append(car.Car(vehicles_names[i], vehicle_letters[i], vehicle_speeds[i]))
+        elif vehicles_names[i] == 'Swift Bike':
+            vehicles.append(motorcycle.Motorcycle(vehicles_names[i], vehicle_letters[i], vehicle_speeds[i]))
+        elif vehicles_names[i] == 'Behemoth Truck':
+            vehicles.append(truck.Truck(vehicles_names[i], vehicle_letters[i], vehicle_speeds[i]))
+
+    vehicles[choice]._initial = 'P'
+
+    track = create_track(vehicles)
     winners = []
     places = [None, None, None]
 
     while len(winners) < len(vehicles):
         display_track(track, vehicles)
+        
         for i, v in enumerate(vehicles):
             if v.position >= track_length - 1 or v in winners:
                 continue
@@ -63,9 +81,7 @@ def main():
             pos = v.position
             obs_loc = find_next_obstacle(track, lane, pos)
             if v.initial == 'P' and v not in winners:
-                print(f"\nYour turn! {v}")
-                print("1. Fast\n2. Slow\n3. Special Move")
-                move = check_input.get_int_range("Choose move: ", 1, 3)
+                move = check_input.get_int_range("Choose your action: (1. Fast, 2. Slow, 3. Special Move): ", 1, 3)
                 if move == 1:
                     result = v.fast(obs_loc)
                 elif move == 2:
@@ -86,7 +102,7 @@ def main():
                     else:
                         result = v.special_move(obs_loc)
                 print(f"{v._name}: {result}")
-
+            
             # Update track
             if v.position < track_length:
                 track[lane][pos] = '*'
@@ -94,10 +110,10 @@ def main():
             if v.position >= track_length - 1 and v not in winners:
                 winners.append(v)
                 places[i] = len(winners)
-
+        print()
     print("\nRace Results:")
     for place, v in enumerate(winners, 1):
-        print(f"{place}: {v._name}")
+        print(f"{place}: {v.name}")
 
 if __name__ == "__main__":
     main()
