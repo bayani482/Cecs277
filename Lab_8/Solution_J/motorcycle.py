@@ -10,7 +10,7 @@ class Motorcycle(Vehicle):
         if obs_loc <= new_pos and obs_loc < obs_loc + 1:
             # treat as stopped by obstacle
             self._position = obs_loc
-            return f"{self._name} slowly dodges but is stopped by obstacle at {obs_loc}."
+            return f"{self._name} CRASHES at an obstacle!"
         self._position = new_pos
         return f"{self._name} moves slowly {move} units."
 
@@ -34,4 +34,5 @@ class Motorcycle(Vehicle):
                 return f"{self._name} tried to do a wheelie but wiped out and only moves {move} unit!"
         
         self._position += move
+
         return f"{self._name} tried to do a wheelie but didn't have enough energy and moves {move} unit."
