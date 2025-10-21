@@ -10,7 +10,7 @@ class BasicDoor(Door):
         return "You encounter a basic door, you can either push it or pull it to open."
     
     def menu_options(self):
-        return "1. Push\n2.Pull"
+        return "1. Push\n2. Pull"
     
     def get_menu_max(self):
         return 2
