@@ -1,5 +1,6 @@
 """
-_summary_
+This is door class interface that passes all the methods through each subclass of door
+
 """
 
 import abc
