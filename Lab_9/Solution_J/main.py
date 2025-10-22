@@ -1,6 +1,5 @@
 from basic_door import BasicDoor
 from combo import ComboDoor
-from deadbolt import DeadboltDoor
 from locked_door import LockedDoor
 import check_input
 import random as rand   
@@ -22,7 +21,7 @@ def main():
 
     print("Welcome to the Escape Room.\nYou must unlock 3 doors to escape...")
     while doors_unlocked < 3:
-        doors = [LockedDoor()]
+        doors = [LockedDoor(),ComboDoor(),BasicDoor()]
         open_door(rand.choice(doors))
         doors_unlocked += 1
 
