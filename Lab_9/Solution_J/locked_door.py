@@ -3,7 +3,7 @@ import random as rand
 
 class LockedDoor(Door):
     def __init__(self):
-        self._keyloc = rand.randint(1,3)
+        self.key_location = rand.randint(1,3)
         self._input = 0
 
     def examine_door(self):
@@ -26,7 +26,7 @@ class LockedDoor(Door):
                 return "You look under the fake rock"
 
     def is_unlocked(self):
-        if self._input == self._keyloc:
+        if self._input == self.key_location:
             return True
         else:
             return False

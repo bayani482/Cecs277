@@ -18,7 +18,6 @@ def open_door(door):
 
 def main():
     doors_unlocked = 0
-
     print("Welcome to the Escape Room.\nYou must unlock 3 doors to escape...")
     while doors_unlocked < 3:
         doors = [LockedDoor(),ComboDoor(),BasicDoor()]

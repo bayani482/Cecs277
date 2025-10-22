@@ -3,7 +3,7 @@ import random as rand
 
 class ComboDoor(Door):
     def __init__(self):
-        self._combo = rand.randint(1,10)
+        self._correct_value = rand.randint(1,10)
         self._input = 0
     
     def examine_door(self):
@@ -20,13 +20,13 @@ class ComboDoor(Door):
         return f"You spin the dial to {self._input}."
     
     def is_unlocked(self):
-        if self._input == self._combo:
+        if self._input == self._correct_value:
             return True
         else:
             return False
         
     def clue(self):
-        if self._input < self._combo:
+        if self._input < self._correct_value:
             return "Too low."
         else:
             return "Too high."
