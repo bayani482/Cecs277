@@ -12,11 +12,10 @@ def open_door(door):
         print(door.menu_options())
         option = check_input.get_int_range(">", 1, door.get_menu_max())
         print(door.attempt(option))
-        
-        if not door.is_unlocked():
-            print(door.clue())
-
-    print(f"{door.success()}\n")
+        if door.is_unlocked():
+            print(f"{door.success()}\n")
+        else:
+            print(f"{door.clue()}\n")
 
 def main():
     doors_unlocked = 0
