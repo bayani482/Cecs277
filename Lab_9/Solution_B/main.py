@@ -28,15 +28,12 @@ def open_door(door):
 
 def main():
     
-    print("Welcome to the Escape Room.\n You must unlock 3 doors to escape...")
+    print("Welcome to the Escape Room.\nYou must unlock 3 doors to escape...")
     door_types = [BasicDoor,Deadbolt, ComboDoor]
     
-    for i in range(1,4):
-        print(f"\nDoor {i}")
+    for i in range(len(door_types)):
         door = rand.choice(door_types)()
         open_door(door)
-        
     print("Congratulations! You escaped...this time.")
-    
 if __name__ == "__main__":
     main()

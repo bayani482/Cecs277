@@ -13,7 +13,7 @@ class Deadbolt(Door):
         self._bolt1 = rand.randint(1,2)
         self._bolt2 = rand.randint(1,2)
     def examine_door(self):
-        return " You encounter a double deadbolt door, both deadbolts must be unlocked to open it, but you can't tell from looking at them whether they're locked or unlocked"
+        return "You encounter a double deadbolt door, both deadbolts must be unlocked to open it, but you can't tell from looking at them whether they're locked or unlocked"
 
     def menu_options(self):
         return "1. Toggle bolt 1\n2. Toggle bolt 2"
