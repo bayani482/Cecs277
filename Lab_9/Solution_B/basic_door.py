@@ -12,7 +12,7 @@ class BasicDoor(Door):
         self._input = 0
         self._state = rand.randint(1,2)
     def examine_door(self):
-        return "A door that is either pushed to open, or pulled."
+        return "You encounter a basic door, you can either push it or pull it to open."
 
     def menu_options(self):
         return "1. Push\n2. Pull"
@@ -25,9 +25,9 @@ class BasicDoor(Door):
         self._input = option
         match self._input:
             case 1:
-                print("you pushed the door.")
+                return("you pushed the door.")
             case 2:
-                print("you pulled the door.")
+                return("you pulled the door.")
         if self.is_unlocked() == True:
             self.success()
         else:
