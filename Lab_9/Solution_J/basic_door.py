@@ -19,25 +19,20 @@ class BasicDoor(Door):
         self._input = option
         match self._input:
             case 1:
-                print("You push the door.")
+                return "You push the door."
             case 2:
-                print("You pull the door.")
-
-        if self.is_unlocked() == True:
-            self.success()
-        else:
-            self.clue()
+                return "You pull the door."
             
     def is_unlocked(self):
         if self._input == self._state:
             return True
         else:
             return False
+        
     def clue(self):
         return "Try the other way."
     
     def success(self):
-            if self.is_unlocked():
-                return "Congratulations, you opened the door."
+        return "Congratulations, you opened the door."
     
 
