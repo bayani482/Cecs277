@@ -3,7 +3,8 @@ import random as rand
 
 class DeadboltDoor(Door):
     def __init__(self):
-        self._bolt1,self._bolt2 = rand.randint(0,1), rand.randint(0,1)  # 0 = locked, 1 = unlocked
+        #self._bolt1,self._bolt2 = rand.randint(0,1), rand.randint(0,1)  # 0 = locked, 1 = 
+        self._bolt1,self._bolt2 = 1,1
         self._input = 0
     def examine_door(self):
         return """
