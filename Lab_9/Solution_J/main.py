@@ -22,7 +22,7 @@ def main():
 
     print("Welcome to the Escape Room.\nYou must unlock 3 doors to escape...")
     while doors_unlocked < 3:
-        doors = [BasicDoor(), ComboDoor(), DeadboltDoor()]
+        doors = [DeadboltDoor()]
         open_door(rand.choice(doors))
         doors_unlocked += 1
 
