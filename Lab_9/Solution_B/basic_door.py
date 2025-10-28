@@ -97,4 +97,6 @@ class BasicDoor(Door):
             str: message of congratulations
         """
         return "Congratulations, You opened the basic door."
+    
+    
 

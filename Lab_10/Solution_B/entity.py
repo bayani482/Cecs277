@@ -49,6 +49,9 @@ class Entity:
             int: hp of the entity
         """
         return self._hp
+    @property
+    def max_hp(self):
+        return self._max_hp
     def take_damage(self, dmg):
         """takes damage and reduces the hp of the entity by dmg
 

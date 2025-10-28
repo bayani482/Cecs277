@@ -22,9 +22,9 @@ class Enemy(Entity):
         _hp: the current hp of the dragon
     """
     def __init__(self):
-        monster = rand.choice(names)
-        names = ["Goblin","Vampire","Ghoul","Skeleton","Zombie"]
-        
+        name = rand.choice(["Goblin","Vampire","Ghoul","Skeleton","Zombie"])
+        hp = rand.randint(4,8)
+        super().__init__(name,hp)
     def attack(self, hero):
         """
         dragon attacks hero with a tail smash
@@ -35,6 +35,6 @@ class Enemy(Entity):
         Returns:
             str: a string of the attack performed and the damage done to the dragon
         """
-        dmg = rand.randint(2,5)
+        dmg = rand.randint(1,4)
         hero.take_damage(dmg)
-        return f"{self.name} smashes you with its tail for {dmg} damage.\n"
+        return f"{self.name} attacks {hero.name} for {dmg} damage.\n"
