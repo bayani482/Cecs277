@@ -9,16 +9,17 @@ class Map:
     _initialized = False
     
     def __new__(cls):
-        """_summary_
+        """create or return instance of map
 
         Returns:
-            _type_: _description_
+            Map: instance of map
         """
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
     def __init__(self):
-        """_summary_
+        """
+        initialize a map from file map.txt
         """
         if Map._initialized:
             return
@@ -36,60 +37,60 @@ class Map:
         """get i from row in the map
 
         Args:
-            row (_type_): _description_
+            row (int): row index
 
         Returns:
-            _type_: _description_
+            list[str]: get a list of characters on the row
         """
         return self._map[row]
     
     def __len__(self):
-        """_summary_
+        """return number of rows in the map
 
         Returns:
-            _type_: _description_
+            int: rows in the map
         """
         return len(self._map)
     
     def show_map(self,loc):
-        """_summary_
+        """go through the map and process the hero location and travled locations
 
         Args:
-            loc (_type_): _description_
+            loc (tuple[int,int]): row,col location of the hero
 
         Returns:
-            _type_: _description_
+            str: string representation of the map
         """
         rH, cH = loc
         output = ""
         for row in range(len(self._map)):
             for col in range(len(self._map[row])):
                 if row == rH and col == cH:
-                    output += "*"# hero postion
+                    output += "* "# hero postion
                 elif self._revealed[row][col]:
-                    output += self._map[row][col]  # revealed tile
+                    output += self._map[row][col] + " "  # revealed tile
                 else:
-                    output += "x"  # unrevealed tile
+                    output += "x "  # unrevealed tile
             output += "\n"  # next row
         return output
     
     def reveal(self,loc):
-        """_summary_
+        """reveals specific tile on the map and returns its character value
 
         Args:
-            loc (_type_): _description_
+            loc (tuple[int,int]): the (row,col) location to reveal
 
         Returns:
-            _type_: _description_
+            str: character at the revealed location
         """
         row, col = loc
         self._revealed[row][col] = True
         return self._map[row][col]
     def remove_at_loc(self,loc):
-        """_summary_
+        """replace the tile at a given location with 'n'
 
         Args:
-            loc (_type_): _description_
+            loc (tuple [int,int]): the (row,col) coordinates of the tile
         """
         row, col = loc
         self._map[row][col] = "n"
