@@ -21,9 +21,8 @@ class Map:
                 if row:
                     self._map.append(row)
         self._revealed = [[False for _ in row] for row in self._map]
-
         Map._initialized = True
-        
+
     def __getitem__(self,row):
         return self._map[row]
     

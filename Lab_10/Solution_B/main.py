@@ -19,27 +19,28 @@ def main():
     name = input("What is your name, traveler? ").strip().capitalize()
     hero = Hero(name)
     game_map = Map()
-    game_map.reveal(hero.loc())
-    print(game_map.show_map(hero.loc()))
+    game_map.reveal(hero.loc)
+
+    
     playing = True
     while playing:
         print(f"\n{hero.name}: {hero.hp}/{hero.max_hp} HP")
-        print(game_map.show_map(hero.loc()))
+        print(game_map.show_map(hero.loc))
         print("1. Go North\n2. Go South\n3. Go East\n4. Go West\n5. Quit")
         choice = check_input.get_int_range(f"Enter your choice (1-5): ",1, 5)
         match choice:
             case 1:
-                tile = hero.go_north(game_map)
+                tile = hero.go_north()
             case 2:
-                tile = hero.go_south(game_map)
+                tile = hero.go_south()
             case 3:
-                tile = hero.go_east(game_map)
+                tile = hero.go_east()
             case 4:
-                tile = hero.go_west(game_map)
+                tile = hero.go_west()
             case 5:
                 break
 
-        game_map.reveal(hero.loc())
+        game_map.reveal(hero.loc)
         if tile == "m":
             print("You encounter a MONSTER!")
             enemy = Enemy()
@@ -51,7 +52,7 @@ def main():
                         print(hero.attack(enemy))
                         if enemy.hp <= 0:
                             print(f"You have slain a {enemy.name} ")
-                            game_map.remove_at_loc(hero.loc())
+                            game_map.remove_at_loc(hero.loc)
                             break
                         print(enemy.attack(hero))# Enemy attacks back
                         if hero.hp <= 0:
@@ -63,15 +64,15 @@ def main():
                         print(f"You run away and ran {direction}.")
                         match direction:
                             case "north":
-                                hero.go_north(game_map)
+                                hero.go_north()
                             case "south":
-                                hero.go_south(game_map)
+                                hero.go_south()
                             case "east":
-                                hero.go_east(game_map)
+                                hero.go_east()
                             case "west":
-                                hero.go_west(game_map)
-                        game_map.reveal(hero.loc())
-                        print(game_map.show_map(hero.loc()))
+                                hero.go_west()
+                        game_map.reveal(hero.loc)
+                        print(game_map.show_map(hero.loc))
                         break
         elif tile == "n":
             print("There is nothing here...")
@@ -84,7 +85,7 @@ def main():
             else:
                 hero.heal()
                 print("You drink it to restore your health")
-                game_map.remove_at_loc(hero.loc())
+                game_map.remove_at_loc(hero.loc)
         elif tile == "f":
             print("Congratulations! You found the exit and escaped the dungeon!")
             playing = False
