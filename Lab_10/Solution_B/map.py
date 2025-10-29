@@ -50,4 +50,4 @@ class Map:
         return self._map[row][col]
     def remove_at_loc(self,loc):
         row, col = loc
-        self._map[row][col] = "-"
+        self._map[row][col] = "n"
