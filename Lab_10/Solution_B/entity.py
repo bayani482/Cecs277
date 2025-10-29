@@ -51,6 +51,11 @@ class Entity:
         return self._hp
     @property
     def max_hp(self):
+        """gets the current hp of the entity
+
+        Returns:
+            int: max hp of entity
+        """
         return self._max_hp
     def take_damage(self, dmg):
         """takes damage and reduces the hp of the entity by dmg
@@ -66,6 +71,11 @@ class Entity:
             self._hp = 0
         return self._hp
     def heal(self):
+        """gets the current hp of the entity and sets it to max hp
+
+        Returns:
+            int: map hp
+        """
         self._hp = self._max_hp
     @abc.abstractmethod
     def attack(self, entity):

@@ -14,18 +14,19 @@ from map import Map
 
 class Hero(Entity):
     def __init__(self, _name):
+        """
+        creates a hero entity with a location and map object.
+
+        Args:
+            Entity (object): a entity object
+        attributes:
+            _loc: tuple with ints
+            _map: map object
+        """
         self._loc = [0,0]
         self._map = Map()
         super().__init__(_name, 25)
-    """
-    creates a hero entity with a name and hp.
 
-    Args:
-        Entity (object): a entity object
-    attributes:
-        _name: the name of the hero
-        _hp: the current hp of the hero
-    """
     def attack(self, entity):
         """
         hero attacks dragon with a sword
@@ -42,9 +43,19 @@ class Hero(Entity):
 
     @property
     def loc(self):
+        """getter for hero location
+
+        Returns:
+            int: tuple of location
+        """
         return self._loc
 
     def go_north(self):
+        """move hero location up
+
+        Returns:
+            char: tile value in the map
+        """
         row = self._loc[0] -1
         if row >= 0:
             self._loc[0] = row
@@ -53,6 +64,11 @@ class Hero(Entity):
             return 'o'
 
     def go_south(self):
+        """move hero location down
+
+        Returns:
+            char: tile value in the map
+        """
         row = self._loc[0] + 1
         if row < len(self._map):
             self._loc[0] = row
@@ -61,6 +77,11 @@ class Hero(Entity):
             return 'o'
 
     def go_east(self):
+        """move hero location right
+
+        Returns:
+            char: tile value in the map
+        """
         col = self._loc[1] + 1
         if col < len(self._map[0]):
             self._loc[1] = col
@@ -69,6 +90,11 @@ class Hero(Entity):
             return 'o'
 
     def go_west(self):
+        """move hero location left
+
+        Returns:
+            char: tile value in the map
+        """
         col = self._loc[1] - 1
         if col >= 0:
             self._loc[1] = col

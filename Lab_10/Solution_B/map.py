@@ -1,4 +1,6 @@
 """_summary_
+
+
 """
 
 
@@ -7,10 +9,17 @@ class Map:
     _initialized = False
     
     def __new__(cls):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
     def __init__(self):
+        """_summary_
+        """
         if Map._initialized:
             return
         ## read file and make map
@@ -24,12 +33,33 @@ class Map:
         Map._initialized = True
 
     def __getitem__(self,row):
+        """get i from row in the map
+
+        Args:
+            row (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         return self._map[row]
     
     def __len__(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return len(self._map)
     
     def show_map(self,loc):
+        """_summary_
+
+        Args:
+            loc (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         rH, cH = loc
         output = ""
         for row in range(len(self._map)):
@@ -44,9 +74,22 @@ class Map:
         return output
     
     def reveal(self,loc):
+        """_summary_
+
+        Args:
+            loc (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         row, col = loc
         self._revealed[row][col] = True
         return self._map[row][col]
     def remove_at_loc(self,loc):
+        """_summary_
+
+        Args:
+            loc (_type_): _description_
+        """
         row, col = loc
         self._map[row][col] = "n"
