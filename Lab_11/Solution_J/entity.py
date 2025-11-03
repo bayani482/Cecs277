@@ -18,7 +18,7 @@ class Entity(abc.ABC):
         pass
 
     def __str__(self):
-        return f"{self._name} HP: {self._hp})"
+        return f"{self._name} HP: {self._hp}"
     
     def take_damage(self,dmg):
         self._hp -= dmg
