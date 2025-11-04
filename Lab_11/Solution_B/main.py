@@ -40,7 +40,7 @@ def main():
             case 2:
                 print(hero.ranged_attack(enemy))
         if enemy._hp > 0:
-            print(enemy.attack(hero))
+            print(enemy.melee_attack(hero))
             print(hero)
             print(enemy)
         elif enemy._hp <= 0:
