@@ -29,11 +29,17 @@ class Entity:
         return self._hp
 
     def __str__(self):
+        """
+        String representation of the entity
+        Returns:
+            str: string representation
+        """
         return f"Name: {self.name} Hp: {self._hp}"
     
     @abc.abstractmethod
     def melee_attack(self, enemy):
-        """performs a melee attack on another entity
+        """
+        Performs a melee attack on another entity.
 
         Args:
             other (Entity): the entity to attack
@@ -41,8 +47,8 @@ class Entity:
         pass
     
     def take_damage(self, dmg):
-        """reduces the entity's hp by the damage taken
-
+        """
+        Reduces the entity's hp by the damage taken. and if its less than 0 sets it to 0
         Args:
             dmg (int): the amount of damage taken
         """

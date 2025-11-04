@@ -1,5 +1,5 @@
 """
-
+beg_goblin.py: Beginner Goblin Enemy Class
 
 """
 
@@ -13,10 +13,13 @@ class BegGoblin(Entity):
         super().__init__("Beginner Goblin",rand.randint(7,9))
     
     def melee_attack(self, enemy):
-        """performs a melee attack on another entity
-
+        """
+        Performs a melee attack on another entity.
         Args:
             enemy (Entity): the entity to attack
+
+        Returns:
+            str: attack description
         """
         dmg = (rand.randint(4,6))
         enemy.take_damage(dmg)

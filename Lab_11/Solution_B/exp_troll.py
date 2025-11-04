@@ -17,6 +17,9 @@ class ExpTroll(Entity):
 
         Args:
             enemy (Entity): the entity to attack
+
+        Returns:
+            str: attack description
         """
         dmg = (rand.randint(8,12))
         enemy.take_damage(dmg)

@@ -1,3 +1,13 @@
+"""
+Lab 11 - Factory
+
+Student 1: Bryan Bayani
+Student 2: Javier Jacobo
+Date: November 5th, 2025
+
+
+"""
+
 import check_input
 from beg_factory import BegFactory
 from enemy_factory import EnemyFactory

@@ -13,10 +13,12 @@ class ExpGoblin(Entity):
         super().__init__("Expert Goblin",rand.randint(12,15) )
     
     def melee_attack(self, enemy):
-        """performs a melee attack on another entity
-
+        """
+        Performs a melee attack on another entity.
         Args:
             enemy (Entity): the entity to attack
+        Returns:
+            str: attack description
         """
         dmg = (rand.randint(5,8))
         enemy.take_damage(dmg)

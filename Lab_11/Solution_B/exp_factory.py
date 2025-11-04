@@ -1,4 +1,5 @@
-"""_summary_
+"""
+Expert Factory Class
 """
 import random as rand
 
@@ -9,6 +10,11 @@ from exp_troll import ExpTroll
 
 class ExpFactory(EnemyFactory):
     def create_random_enemy(self):
+        """
+        Creates a random expert enemy.
+        Returns:
+            object: an instance of an expert enemy
+        """
         randomEnemy=rand.choice([1,2])
         match randomEnemy:
             case 1:

@@ -1,5 +1,5 @@
 """
-
+Beginner Troll Enemy Class
 
 """
 
@@ -13,10 +13,13 @@ class BegTroll(Entity):
         super().__init__("Beginner Troll",rand.randint(8,10) )
     
     def melee_attack(self, enemy):
-        """performs a melee attack on another entity
-
+        """
+        Performs a melee attack on another entity.
         Args:
             enemy (Entity): the entity to attack
+
+        Returns:
+            str: attack description
         """
         dmg = (rand.randint(5,9))
         enemy.take_damage(dmg)
