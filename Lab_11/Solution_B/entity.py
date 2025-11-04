@@ -29,7 +29,7 @@ class Entity:
         return self._hp
 
     def __str__(self):
-        return f"Name: {self.name}, Health: {self._hp})"
+        return f"Name: {self.name} Hp: {self._hp}"
     
     @abc.abstractmethod
     def melee_attack(self, enemy):
@@ -39,3 +39,13 @@ class Entity:
             other (Entity): the entity to attack
         """
         pass
+    
+    def take_damage(self, dmg):
+        """reduces the entity's hp by the damage taken
+
+        Args:
+            dmg (int): the amount of damage taken
+        """
+        self._hp -= dmg
+        if self._hp < 0:
+            self._hp = 0

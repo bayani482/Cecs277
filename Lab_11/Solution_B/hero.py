@@ -4,13 +4,13 @@
 import random as rand
 
 #hero class extends from entity class
-import entity
+from entity import Entity
 
 
-class Hero(entity):
-    def __init__(self, name, hp):
-        super().__init__(name, hp)
-    @property
+class Hero(Entity):
+    def __init__(self, name ):
+        super().__init__(name, 25)
+        
 
     def melee_attack(self, enemy):
         """performs a melee attack on another entity

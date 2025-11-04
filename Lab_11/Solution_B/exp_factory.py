@@ -3,15 +3,17 @@
 import random as rand
 
 from enemy_factory import EnemyFactory
+from exp_goblin import ExpGoblin
+from exp_troll import ExpTroll
 
 
-class BeginnerFactory(EnemyFactory):
+class ExpFactory(EnemyFactory):
     def create_random_enemy(self):
-        randomEnemy=rand.randint(0,2)
+        randomEnemy=rand.choice([1,2])
         match randomEnemy:
             case 1:
-                return "ExpGoblin"
+                return ExpGoblin()
             case 2:
-                return "ExpTroll"
+                return ExpTroll()
 
     
