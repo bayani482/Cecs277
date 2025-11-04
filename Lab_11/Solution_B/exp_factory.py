@@ -3,6 +3,8 @@
 import random as rand
 
 from enemy_factory import EnemyFactory
+from exp_goblin import ExpGoblin
+from exp_troll import ExpTroll
 
 
 class BeginnerFactory(EnemyFactory):
@@ -10,8 +12,6 @@ class BeginnerFactory(EnemyFactory):
         randomEnemy=rand.randint(0,2)
         match randomEnemy:
             case 1:
-                return "ExpGoblin"
+                return ExpGoblin()
             case 2:
-                return "ExpTroll"
-
-    
+                return ExpTroll()
