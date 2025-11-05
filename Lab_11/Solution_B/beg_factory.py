@@ -1,4 +1,6 @@
-"""_summary_
+"""
+beg_factory.py: Beginner Factory Class
+
 """
 import random as rand
 
@@ -7,13 +9,16 @@ from beg_troll import BegTroll
 from enemy_factory import EnemyFactory
 
 
-class BeginnerFactory(EnemyFactory):
+class BegFactory(EnemyFactory):
     def create_random_enemy(self):
-        randomEnemy=rand.randint(0,2)
+        """
+        Creates a random beginner enemy.
+        Returns:
+            object: an instance of a beginner enemy
+        """
+        randomEnemy=rand.choice([1,2])
         match randomEnemy:
             case 1:
                 return BegGoblin()
             case 2:
                 return BegTroll()
-
-    

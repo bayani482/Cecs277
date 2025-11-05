@@ -9,7 +9,7 @@ class Hero(Entity):
     def melee_attack(self, enemy):
         damage = rand.randint(2,6)
         enemy.take_damage(damage)
-        return f"{self._name} shlashes a {enemy._name} with a sword for {damage} damage!"
+        return f"{self._name} slashes a {enemy._name} with a sword for {damage} damage!"
 
     def ranged_attack(self, enemy):
         damage = rand.randint(1,12)
