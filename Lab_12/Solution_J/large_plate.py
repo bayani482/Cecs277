@@ -2,8 +2,8 @@ from plate import Plate
 
 class LargePlate(Plate):
 
-    def decscription(self):
-        return "This is a large plate"
+    def description(self):
+        return "Flimsy 12 inch paper plate"
     
     def area(self):
         return 113

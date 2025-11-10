@@ -1,7 +1,7 @@
 from plate_decorator import PlateDecorator
 
 class Stuffing(PlateDecorator):
-    
+
     def desription(self):
         return super().description() + ", with stuffing"
     
