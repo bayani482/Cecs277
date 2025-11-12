@@ -5,7 +5,9 @@ Student 1: Bryan Bayani
 Student 2: Javier Jacobo
 Date: November 10th, 2025
 
-
+A fun, whimsical, and awesome Thanksgiving Simulator.
+Stuff your mouth with all the classics:
+Turkey, Stuffing, Potatoes, Green_Beans, and Pie.... Yummy
 """
 import check_input
 from small_plate import SmallPlate
@@ -16,28 +18,53 @@ from potatoes import Potatoes
 from green_beans import GreenBeans
 from pie import Pie
 
+
+
 def examine_plate(plate):
+    """
+    Examines the plate to see if it can hold the food
+    
+    Args:
+        plate (PlateDecorator): The current plate with food items
+    Returns:
+        result: bool -- True if the plate can hold the food, False otherwise
+    """
     result = False
     print(plate.description())
 
-    if plate.weight() >= 13 and plate.area() >= 41:
-        hint = "Sturdiness: Strong\nArea remaining: Hella"
+    # Check weight
+    if plate.weight() >= 13:
+        weight_hint = "Sturdiness: Strong"
         result = True
-    elif plate.weight() >= 7 and plate.area() >= 21:
-        hint = "Studiness: Weak\nArea remaining: You're getting there"
+    elif plate.weight() >= 7:
+        weight_hint = "Sturdiness: Weak"
         result = True
-    elif plate.weight() >= 1 and plate.area() >= 1:
-        hint = "Sturdiness: Bending\nArea remaining: This bitch almost at full capacity!"
+    elif plate.weight() >= 1:
+        weight_hint = "Sturdiness: Bending"
         result = True
     else:
-        hint = "Your plate fell apart idiot!!!!"
+        weight_hint = "Oh no... Your plate fell apart."
         result = False
 
-    print(hint)
+    # Check area
+    if plate.area() >= 41:
+        area_hint = "Space available: Plenty"
+        result = True
+    elif plate.area() >= 21:
+        area_hint = "Space available: Some"
+        result = True
+    elif plate.area() >= 1:
+        area_hint = "Space available: Little"
+        result = True
+    else:
+        area_hint = "Oh no... Your plate is full."
+        result = False
+
+    print(weight_hint)
+    print(area_hint)
     return result
 
 def main():
-    items = []
     play = True
 
     print("""
@@ -46,7 +73,6 @@ Serve yourself as much food as you
 like from the buffet, but make sure
 that your plate will hold without
 spilling everywhere!""")
-    plate = 0 # temp value
     plate_choice = check_input.get_int_range("Choose a plate:\n1. Small Sturdy Plate\n2. Large Flimsy Plate\n>",1,2)
 
     match plate_choice:
@@ -54,12 +80,12 @@ spilling everywhere!""")
             plate = SmallPlate()
         case 2:
             plate = LargePlate()
-        
-    max_weight = plate.weight()
-    max_area = plate.area()
-    print(max_weight)
-    print(max_area)
-
+     
+    # For debugging purposes, comment out below to see plate area and weight :3
+    # max_weight = plate.weight()
+    # max_area = plate.area()
+    # print(max_weight)
+    # print(max_area)
 
     while play:
         menu_choice = check_input.get_int_range("""1. Turkey
@@ -81,14 +107,13 @@ spilling everywhere!""")
                 plate = Pie(plate)
             case 6:
                 print(f"""
-Congrats Fatty! You made it to the end of the table with {len(items)} items without spilling your food!
+Congrats! You made it to the end of the table with {plate.count()} items without spilling your food!
 There was still {plate.area()} square inches of food left on your plate.
 Your plate could have held {plate.weight()} more ounces of food.
 Don't worry, you can always go back for more. Happy Thankgiving!""")
                 break
-            
+
         play = examine_plate(plate)
-        items.append(menu_choice)
 
 if __name__ == "__main__":
     main()
