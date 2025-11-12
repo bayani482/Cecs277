@@ -2,7 +2,7 @@ from plate_decorator import PlateDecorator
 
 class GreenBeans(PlateDecorator):
     
-    def decsription(self):
+    def description(self):
         return super().description() + ", with green beans"
     
     def area(self):
