@@ -1,5 +1,13 @@
 from plate_decorator import PlateDecorator
+"""
+A class representing potatoes on a plate. Inherits from the PlateDecorator class.
 
+Methods:
+    description() -- Returns a string description of the plate with potatoes.
+    area() -- Returns the available area on the plate after adding potatoes.
+    weight() -- Returns the weight capacity of the plate after adding potatoes.
+    count() -- Returns the number of food items on the plate after adding potatoes.
+"""
 class Potatoes(PlateDecorator):
 
     def description(self):

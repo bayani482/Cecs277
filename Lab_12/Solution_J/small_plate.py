@@ -1,4 +1,13 @@
 from plate import Plate
+"""
+A class representing a small plate. Inherits from the Plate interface.
+
+Methods:
+    description() -- Returns a string description of the plate and its contents.
+    area() -- Returns the available area on the plate.
+    weight() -- Returns the weight capacity of the plate.
+    count() -- Returns the number of food items on the plate.
+"""
 
 class SmallPlate(Plate):
 

@@ -1,6 +1,15 @@
 from plate_decorator import PlateDecorator
+"""
+A class representing turkey on a plate. Inherits from the PlateDecorator class.
 
+Methods:
+    description() -- Returns a string description of the plate with turkey.
+    area() -- Returns the available area on the plate after adding turkey.
+    weight() -- Returns the weight capacity of the plate after adding turkey.
+    count() -- Returns the number of food items on the plate after adding turkey.
+"""
 class Turkey(PlateDecorator):
+    
     def description(self):
         """
         Overrides the description method to add turkey details.

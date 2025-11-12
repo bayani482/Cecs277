@@ -43,8 +43,8 @@ def examine_plate(plate):
         weight_hint = "Sturdiness: Bending"
         result = True
     else:
-        weight_hint = "Oh no... Your plate fell apart."
-        result = False
+        print("Your plate isn't sturdy enough to hold any more food!\nYour plate snaps in half!")
+        return False
 
     # Check area
     if plate.area() >= 41:
@@ -57,8 +57,8 @@ def examine_plate(plate):
         area_hint = "Space available: Little"
         result = True
     else:
-        area_hint = "Oh no... Your plate is full."
-        result = False
+        print("Your plate isn't big enough for this much food!\nYour food spills over the edge!")
+        return False
 
     print(weight_hint)
     print(area_hint)

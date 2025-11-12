@@ -1,5 +1,13 @@
 from plate_decorator import PlateDecorator
+"""
+A class representing stuffing on a plate. Inherits from the PlateDecorator class.
 
+Methods:
+    description() -- Returns a string description of the plate with stuffing.
+    area() -- Returns the available area on the plate after adding stuffing.
+    weight() -- Returns the weight capacity of the plate after adding stuffing.
+    count() -- Returns the number of food items on the plate after adding stuffing.
+"""
 class Stuffing(PlateDecorator):
 
     def description(self):
