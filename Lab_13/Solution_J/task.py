@@ -16,8 +16,9 @@ class Task():
         return f"{self._desc},{self._date},{self._time}"
     
     def __lt__(self, other):
-        task1 = [self._date, self._time, self._desc]
-        task2 = [other._date, other._time, other._desc]
+        
+        task1 = [int(self._date.replace("/", "")), int(self._time.replace(":", "")), self._desc]
+        task2 = [int(other._date.replace("/", "")), int(other._time.replace(":", "")), other._desc]
 
         if task1 < task2:
             return True
