@@ -31,5 +31,5 @@ class Hero(Entity):
             str: attack description
         """
         dmg = rand.randint(1,12)
-        enemy._hp= enemy._hp - dmg
+        enemy._hp = enemy._hp - dmg
         return f"{self._name} pierces a {enemy._name} with an arrow for {dmg} damage."
