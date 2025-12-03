@@ -6,6 +6,12 @@ from puppy_state import PuppyState
 
 
 class StateAsleep(PuppyState):
+    """
+    puppy asleep state
+
+    Args:
+        PuppyState (object): puppy object
+    """
     def play(self, puppy):
         return "The puppy is asleep and doesn't want to play right now."
     def feed(self, puppy):
@@ -15,4 +21,5 @@ class StateAsleep(PuppyState):
         puppy.inc_feeds()
         return  "The puppy wakes up and comes running to eat."
     
+
 

@@ -1,5 +1,11 @@
 """
-main
+Lab 14 - state
+
+Student 1: Brian Bayani
+Student 2: Javier Jacobo
+Date: December 1st, 2025
+
+This program manages states of a puppy using the state design pattern.
 """
 
 import check_input
@@ -12,6 +18,7 @@ def main():
     while True:
         print("What would you like to do?\n1. Feed the puppy\n2. Play with the puppy\n3. Quit")
         choice = check_input.get_int_range("Enter choice: ", 1, 3)
+        
         if choice == 1:
             action = puppy.give_food()
         elif choice == 2:

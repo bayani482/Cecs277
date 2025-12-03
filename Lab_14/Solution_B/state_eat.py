@@ -1,12 +1,27 @@
 """
 
 eat state for the puppy
+
 """
 from puppy_state import PuppyState
 
 
 class StateEat(PuppyState):
+    """
+    eat state of puppy
+
+    Args:
+        PuppyState (object): puppy object
+    """
     def play(self, puppy):
+        """play method
+
+        Args:
+            puppy (_type_): _description_
+
+        Returns:
+            str: string message of puppies state
+        """
         from state_play import StatePlay
         puppy.reset()
         puppy.change_state(StatePlay())
@@ -22,4 +37,4 @@ class StateEat(PuppyState):
             puppy.change_state(StateAsleep())
             puppy.reset()
             return  "The puppy at so much it fell asleep."
-        
+                

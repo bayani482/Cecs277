@@ -12,19 +12,19 @@ class PuppyState(abc.ABC):
     @abc.abstractmethod
     def play(self,puppy):
         """
-        Simulate throwing a ball to the puppy
+        abstract play method
         
         Returns:
-            str: A message indicating the puppy's reaction
+            str: A message indicating the puppy's playing
         """
         pass
     @abc.abstractmethod
     def feed(self,puppy):
         """
-        Simulate giving food to the puppy
+        abstract feed method
         
         Returns:
-            str: A message indicating the puppy's reaction
+            str: A message indicating the puppy's eating
         """
         pass
 
